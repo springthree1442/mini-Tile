@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 st.title("🎈 Mini Tile")
-st.caption("Streamlit으로 만든 간단한 트위터형 웹사이트")
+st.caption("X 끊으려고 만든 자체 디지털 쓰레기통")
 
 
 # =========================
