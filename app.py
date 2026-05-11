@@ -9,12 +9,12 @@ from datetime import datetime
 # =========================
 
 st.set_page_config(
-    page_title="Mini X",
-    page_icon="💬",
+    page_title="Mini Tile",
+    page_icon="🎈",
     layout="centered"
 )
 
-st.title("💬 Mini X")
+st.title("🎈 Mini Tile")
 st.caption("Streamlit으로 만든 간단한 트위터형 웹사이트")
 
 
