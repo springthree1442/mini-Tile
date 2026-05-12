@@ -132,14 +132,28 @@ if "logged_in" not in st.session_state:
 if "username" not in st.session_state:
     st.session_state.username = ""
 
+if "page" not in st.session_state:
+    st.session_state.page = "홈"
+
+if "login_success_message" not in st.session_state:
+    st.session_state.login_success_message = False
+
+if "redirect_to_home" not in st.session_state:
+    st.session_state.redirect_to_home = False
+
 
 # =========================
 # 10. 사이드바 메뉴
 # =========================
 
+if st.session_state.redirect_to_home:
+    st.session_state.page = "홈"
+    st.session_state.redirect_to_home = False
+
 menu = st.sidebar.radio(
     "메뉴",
     ["홈", "회원가입", "로그인"]
+    key="page"
 )
 
 
@@ -180,12 +194,12 @@ elif menu == "로그인":
     username = st.text_input("아이디")
     password = st.text_input("비밀번호", type="password")
 
-    if st.button("로그인하기"):
-        if login(username, password):
-            st.session_state.logged_in = True
-            st.session_state.username = username
-            st.success(f"{username}님, 로그인되었습니다.")
-            st.rerun()
+    if login(username, password):
+    st.session_state.logged_in = True
+    st.session_state.username = username
+    st.session_state.login_success_message = True
+    st.session_state.redirect_to_home = True
+    st.rerun()
         else:
             st.error("아이디 또는 비밀번호가 올바르지 않습니다.")
 
@@ -195,6 +209,10 @@ elif menu == "로그인":
 # =========================
 
 elif menu == "홈":
+    if st.session_state.login_success_message:
+        st.success(f"{st.session_state.username}님, 로그인되었습니다.")
+        st.session_state.login_success_message = False
+
     if st.session_state.logged_in:
         st.success(f"현재 로그인한 사용자: {st.session_state.username}")
 
