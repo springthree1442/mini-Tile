@@ -200,7 +200,7 @@ if login(username, password):
     st.session_state.login_success_message = True
     st.session_state.redirect_to_home = True
     st.rerun()
-        else:
+else:
             st.error("아이디 또는 비밀번호가 올바르지 않습니다.")
 
 
