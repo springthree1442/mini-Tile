@@ -102,7 +102,7 @@ def login(username, password):
 # =========================
 
 def add_post(username, content):
-    created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    created_at = datetime.now(ZoneInfo("Asia/Seoul")).strftime("%Y-%m-%d %H:%M:%S")
 
     cursor.execute(
         "INSERT INTO posts (username, content, created_at) VALUES (?, ?, ?)",
