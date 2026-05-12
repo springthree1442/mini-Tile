@@ -200,6 +200,11 @@ if login(username, password):
     st.session_state.login_success_message = True
     st.session_state.redirect_to_home = True
     st.rerun()
+
+elif menu == "홈":
+        if st.session_state.login_success_message:
+            st.success(f"{st.session_state.username}님, 로그인되었습니다.")
+            st.session_state.login_success_message = False
 else:
             st.error("아이디 또는 비밀번호가 올바르지 않습니다.")
 
@@ -207,11 +212,6 @@ else:
 # =========================
 # 13. 홈 화면
 # =========================
-
-elif menu == "홈":
-        if st.session_state.login_success_message:
-            st.success(f"{st.session_state.username}님, 로그인되었습니다.")
-            st.session_state.login_success_message = False
 
     if st.session_state.logged_in:
         st.success(f"현재 로그인한 사용자: {st.session_state.username}")
