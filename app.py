@@ -234,7 +234,7 @@ elif menu == "홈":
             username, content, created_at = post
 
             st.markdown(f"### @{username}")
-            st.write(content)
+            st.markdown(content.replace("/n", "  /n"))
             st.caption(created_at)
             st.divider()
     else:
