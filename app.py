@@ -208,7 +208,7 @@ else:
 # 13. 홈 화면
 # =========================
 
-    elif menu == "홈":
+elif menu == "홈":
         if st.session_state.login_success_message:
             st.success(f"{st.session_state.username}님, 로그인되었습니다.")
             st.session_state.login_success_message = False
