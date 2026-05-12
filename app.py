@@ -194,7 +194,7 @@ elif menu == "로그인":
     username = st.text_input("아이디")
     password = st.text_input("비밀번호", type="password")
 
-    if login(username, password):
+if login(username, password):
     st.session_state.logged_in = True
     st.session_state.username = username
     st.session_state.login_success_message = True
