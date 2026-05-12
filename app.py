@@ -152,7 +152,7 @@ if st.session_state.redirect_to_home:
 
 menu = st.sidebar.radio(
     "메뉴",
-    ["홈", "회원가입", "로그인"]
+    ["홈", "회원가입", "로그인"],
     key="page"
 )
 
